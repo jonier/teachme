@@ -20,11 +20,6 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 */
-Route::get('/popular', [
-    'as'   => 'tickets.popular',
-    'uses' => 'TicketsController@popular'
-]);
-
 Route::get('/', [
     'as'   => 'tickets.latest',
     'uses' => 'TicketsController@latest'
