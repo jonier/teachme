@@ -2,6 +2,7 @@
 
 use TeachMe\Entities\Ticket;
 
+use TeachMe\Entities\TicketComment;
 use TeachMe\Http\Requests;
 use TeachMe\Http\Controllers\Controller;
 
@@ -44,7 +45,11 @@ class TicketsController extends Controller {
     public function details($id)
     {
         $ticket = Ticket::findOrFail($id);
-        return view('tickets/details', compact('ticket'));
+        $comments = TicketComment::select('ticket_comments.*', 'users.name')
+            ->join('users', 'ticket_comments.user_id', '=', 'user_id')
+            ->where('ticket_id', $id)->get();
+
+        return view('tickets/details', compact('ticket', 'comments'));
     }
 
 }
