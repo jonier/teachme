@@ -5,7 +5,7 @@ use TeachMe\Entities\TicketVote;
 
 class TicketVoteTableSeeder extends BaseSeeder
 {
-    protected $total = 250;
+    protected $total = 400;
 
     public function getModel()
     {
