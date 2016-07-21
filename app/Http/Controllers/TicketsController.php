@@ -47,5 +47,4 @@ class TicketsController extends Controller {
         $ticket = Ticket::findOrFail($id);
         return view('tickets/details', compact('ticket', 'comments'));
     }
-
 }
