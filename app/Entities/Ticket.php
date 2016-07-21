@@ -23,11 +23,13 @@ class Ticket extends Entity
         return $this->hasMany(TicketComment::getClass());
     }
 
-    public function getOpenAttribute(){
-        return $this->status == 'open';
-    }
 
     public function voters(){
         return $this->belongsToMany(User::getClass(), 'ticket_votes');
     }
+
+    public function getOpenAttribute(){
+        return $this->status == 'open';
+    }
+
 }
