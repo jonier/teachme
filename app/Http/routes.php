@@ -10,16 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-/*
-Route::get('/', 'WelcomeController@index');
 
-Route::get('home', 'HomeController@index');
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
-*/
+
 Route::get('/', [
     'as'   => 'tickets.latest',
     'uses' => 'TicketsController@latest'
@@ -40,4 +33,9 @@ Route::get('/tutoriales', [
 Route::get('/solicitud/{id}', [
     'as'   => 'tickets.details',
     'uses' => 'TicketsController@details'
+]);
+
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
 ]);
